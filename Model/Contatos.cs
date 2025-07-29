@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AgendaContatos.Model
 {
-    internal class Contatos 
+    public class Contatos 
     {
         public int Id { get; set; }
         public string? Nome { get; set; } 

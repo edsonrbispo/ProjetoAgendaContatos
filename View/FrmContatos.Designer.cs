@@ -63,6 +63,8 @@
             // 
             txtCodigo.Location = new Point(15, 33);
             txtCodigo.Name = "txtCodigo";
+            txtCodigo.ReadOnly = true;
+            txtCodigo.ShortcutsEnabled = false;
             txtCodigo.Size = new Size(100, 23);
             txtCodigo.TabIndex = 1;
             // 
@@ -79,8 +81,9 @@
             // 
             txtNome.Location = new Point(143, 33);
             txtNome.Name = "txtNome";
+            txtNome.ReadOnly = true;
             txtNome.Size = new Size(272, 23);
-            txtNome.TabIndex = 3;
+            txtNome.TabIndex = 2;
             // 
             // lblEmail
             // 
@@ -95,8 +98,9 @@
             // 
             txtEmail.Location = new Point(438, 33);
             txtEmail.Name = "txtEmail";
+            txtEmail.ReadOnly = true;
             txtEmail.Size = new Size(340, 23);
-            txtEmail.TabIndex = 5;
+            txtEmail.TabIndex = 3;
             // 
             // lblTelefone
             // 
@@ -112,8 +116,9 @@
             txtTelefone.Location = new Point(16, 87);
             txtTelefone.Mask = "(99) 0000-0000";
             txtTelefone.Name = "txtTelefone";
+            txtTelefone.ReadOnly = true;
             txtTelefone.Size = new Size(181, 23);
-            txtTelefone.TabIndex = 7;
+            txtTelefone.TabIndex = 4;
             // 
             // lblCelular
             // 
@@ -130,8 +135,9 @@
             txtCelular.Location = new Point(223, 87);
             txtCelular.Mask = "(99) 00000-0000";
             txtCelular.Name = "txtCelular";
+            txtCelular.ReadOnly = true;
             txtCelular.Size = new Size(200, 23);
-            txtCelular.TabIndex = 9;
+            txtCelular.TabIndex = 5;
             // 
             // lblObservacao
             // 
@@ -147,42 +153,46 @@
             txtObservacao.Location = new Point(440, 87);
             txtObservacao.Multiline = true;
             txtObservacao.Name = "txtObservacao";
+            txtObservacao.ReadOnly = true;
             txtObservacao.Size = new Size(338, 66);
-            txtObservacao.TabIndex = 11;
+            txtObservacao.TabIndex = 6;
             // 
             // btnNovo
             // 
             btnNovo.Location = new Point(17, 130);
             btnNovo.Name = "btnNovo";
             btnNovo.Size = new Size(75, 23);
-            btnNovo.TabIndex = 12;
+            btnNovo.TabIndex = 7;
             btnNovo.Text = "Novo";
             btnNovo.UseVisualStyleBackColor = true;
+            btnNovo.Click += btnNovo_Click;
             // 
             // btnEditar
             // 
             btnEditar.Location = new Point(113, 130);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(75, 23);
-            btnEditar.TabIndex = 13;
+            btnEditar.TabIndex = 8;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
             // 
             // btnSalvar
             // 
+            btnSalvar.Enabled = false;
             btnSalvar.Location = new Point(209, 130);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(75, 23);
-            btnSalvar.TabIndex = 14;
+            btnSalvar.TabIndex = 9;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
             // 
             // btnExcluir
             // 
+            btnExcluir.Enabled = false;
             btnExcluir.Location = new Point(305, 130);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(75, 23);
-            btnExcluir.TabIndex = 15;
+            btnExcluir.TabIndex = 10;
             btnExcluir.Text = "Excluir";
             btnExcluir.UseVisualStyleBackColor = true;
             // 
@@ -201,6 +211,7 @@
             dgvListaContatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvListaContatos.Location = new Point(14, 22);
             dgvListaContatos.Name = "dgvListaContatos";
+            dgvListaContatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvListaContatos.Size = new Size(733, 261);
             dgvListaContatos.TabIndex = 0;
             // 
@@ -228,6 +239,7 @@
             Controls.Add(lblCodigo);
             Name = "FrmContatos";
             Text = "Cadastro de Contatos";
+            Load += FrmContatos_Load;
             grbListaContatos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvListaContatos).EndInit();
             ResumeLayout(false);
