@@ -46,6 +46,7 @@
             btnExcluir = new Button();
             grbListaContatos = new GroupBox();
             dgvListaContatos = new DataGridView();
+            btnCancelar = new Button();
             grbListaContatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvListaContatos).BeginInit();
             SuspendLayout();
@@ -169,27 +170,30 @@
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(113, 130);
+            btnEditar.Enabled = false;
+            btnEditar.Location = new Point(98, 130);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(75, 23);
             btnEditar.TabIndex = 8;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnSalvar
             // 
             btnSalvar.Enabled = false;
-            btnSalvar.Location = new Point(209, 130);
+            btnSalvar.Location = new Point(179, 130);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(75, 23);
             btnSalvar.TabIndex = 9;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
             // 
             // btnExcluir
             // 
             btnExcluir.Enabled = false;
-            btnExcluir.Location = new Point(305, 130);
+            btnExcluir.Location = new Point(267, 130);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(75, 23);
             btnExcluir.TabIndex = 10;
@@ -211,15 +215,29 @@
             dgvListaContatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvListaContatos.Location = new Point(14, 22);
             dgvListaContatos.Name = "dgvListaContatos";
+            dgvListaContatos.ReadOnly = true;
             dgvListaContatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvListaContatos.Size = new Size(733, 261);
             dgvListaContatos.TabIndex = 0;
+            dgvListaContatos.CellDoubleClick += dgvListaContatos_CellDoubleClick;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Enabled = false;
+            btnCancelar.Location = new Point(348, 130);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(75, 23);
+            btnCancelar.TabIndex = 17;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // FrmContatos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 501);
+            Controls.Add(btnCancelar);
             Controls.Add(grbListaContatos);
             Controls.Add(btnExcluir);
             Controls.Add(btnSalvar);
@@ -266,5 +284,6 @@
         private Button btnExcluir;
         private GroupBox grbListaContatos;
         private DataGridView dgvListaContatos;
+        private Button btnCancelar;
     }
 }

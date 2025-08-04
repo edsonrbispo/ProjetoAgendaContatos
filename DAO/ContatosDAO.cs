@@ -34,6 +34,35 @@ namespace AgendaContatos.DAO
             return lista;
         }
 
+        public static void Inserir(Contatos contato)
+        {
+            using var conn = Conexao.ObterConexao();
+            conn.Open();
+            var sql = "INSERT INTO contatos (nome, email, telefone, celular,            observacao) VALUES (@nome, @email, @telefone, @celular,            @observacao)";
+            using var cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@nome", contato.Nome);
+            cmd.Parameters.AddWithValue("@email", contato.Email ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@telefone", contato.Telefone ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@celular", contato.Celular ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@observacao", contato.Observacao ?? (object)DBNull.Value);
+            cmd.ExecuteNonQuery();
+
+        }
+
+        public static void Atualizar(Contatos contato)
+        {
+            using var conn = Conexao.ObterConexao();
+            conn.Open();
+            var sql = "UPDATE contatos SET nome=@nome, email=@email, telefone=@telefone, celular=@celular, observacao=@observacao WHERE id=@id";
+            using var cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@id", contato.Id);
+            cmd.Parameters.AddWithValue("@nome", contato.Nome);
+            cmd.Parameters.AddWithValue("@email", contato.Email ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@telefone", contato.Telefone ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@celular", contato.Celular ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@observacao", contato.Observacao ?? (object)DBNull.Value);
+            cmd.ExecuteNonQuery();
+        }
 
     }
 }

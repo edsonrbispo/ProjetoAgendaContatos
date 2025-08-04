@@ -13,5 +13,17 @@ namespace AgendaContatos.Controller
         public List<Contatos> ListarContatos() {
             return ContatosDAO.Listar();
         }
+
+        public void SalvarContato(Contatos contatos)
+        {
+            if (contatos.Id == 0)
+            {
+                ContatosDAO.Inserir(contatos);
+            }
+            else
+            {
+                ContatosDAO.Atualizar(contatos);
+            }
+        }
     }
 }
